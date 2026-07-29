@@ -3,6 +3,8 @@
 インターネット・動画・SNS・自作のレシピを一元的に保存し、家族で共有・献立相談・買い物リスト化まで行う PWA。
 設計書は [docs/design.md](docs/design.md)、セットアップ手順は [SETUP.md](SETUP.md) を参照してください。
 
+**本番URL**: https://recipe-zeta-five.vercel.app
+
 ```
 レシピを貯める  →  週の献立を家族で相談して決める  →  確定した献立から買い物リストを自動生成
 ```
