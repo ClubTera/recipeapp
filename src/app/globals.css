@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/*
+ * 台所で片手で使うことを想定した配色。
+ * 背景は暖色寄りのオフホワイト、アクセントは食欲を邪魔しないオレンジ。
+ */
+:root {
+  --background: oklch(0.99 0.005 85);
+  --foreground: oklch(0.22 0.015 60);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --muted: oklch(0.96 0.008 85);
+  --muted-foreground: oklch(0.52 0.015 70);
+  --primary: oklch(0.68 0.16 45);
+  --primary-foreground: oklch(0.99 0.01 85);
+  --accent: oklch(0.95 0.03 70);
+  --accent-foreground: oklch(0.35 0.08 45);
+  --border: oklch(0.9 0.01 80);
+  --input: oklch(0.93 0.01 80);
+  --ring: oklch(0.68 0.16 45);
+  --destructive: oklch(0.58 0.2 25);
+  --success: oklch(0.62 0.13 150);
+  --radius: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.19 0.012 65);
+    --foreground: oklch(0.94 0.008 85);
+    --card: oklch(0.24 0.014 65);
+    --card-foreground: var(--foreground);
+    --muted: oklch(0.27 0.014 65);
+    --muted-foreground: oklch(0.68 0.014 75);
+    --primary: oklch(0.72 0.15 50);
+    --primary-foreground: oklch(0.18 0.02 60);
+    --accent: oklch(0.32 0.03 55);
+    --accent-foreground: oklch(0.9 0.05 60);
+    --border: oklch(0.32 0.012 65);
+    --input: oklch(0.32 0.012 65);
+    --ring: oklch(0.72 0.15 50);
+    --destructive: oklch(0.62 0.19 25);
+    --success: oklch(0.68 0.13 150);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 0.25rem);
+  --radius-sm: calc(var(--radius) - 0.375rem);
+  --font-sans:
+    system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    /* iOS のホーム画面起動時にセーフエリアを避ける */
+    padding-bottom: env(safe-area-inset-bottom);
+    overscroll-behavior-y: none;
+  }
+  /* タップ時の青いハイライトを消す（PWAらしく見せる） */
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

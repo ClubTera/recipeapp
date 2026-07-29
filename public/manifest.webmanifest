@@ -1,0 +1,48 @@
+{
+  "name": "家族のレシピ",
+  "short_name": "レシピ",
+  "description": "レシピを貯めて、家族で献立を相談し、買い物リストまで一本でつなぐアプリ",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fdfcfa",
+  "theme_color": "#f0834a",
+  "lang": "ja",
+  "dir": "ltr",
+  "categories": ["food", "lifestyle", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "今週の献立",
+      "url": "/plan"
+    },
+    {
+      "name": "買い物リスト",
+      "url": "/shopping"
+    },
+    {
+      "name": "レシピを追加",
+      "url": "/recipes/new"
+    }
+  ]
+}
