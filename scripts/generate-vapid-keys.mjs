@@ -4,12 +4,12 @@
  *
  * 一度だけ生成して保管すること。鍵を変えると既存の購読が全部無効になる（設計書 7.7）。
  */
-import { generateKeyPairSync, createPublicKey } from "node:crypto";
+import { generateKeyPairSync } from "node:crypto";
 
 const { publicKey, privateKey } = generateKeyPairSync("ec", { namedCurve: "prime256v1" });
 
 // 公開鍵は非圧縮形式（0x04 + X + Y の65バイト）を base64url で渡す
-const publicDer = createPublicKey(publicKey).export({ type: "spki", format: "der" });
+const publicDer = publicKey.export({ type: "spki", format: "der" });
 const publicRaw = publicDer.subarray(publicDer.length - 65);
 
 const privateJwk = privateKey.export({ format: "jwk" });
